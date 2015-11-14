@@ -1,13 +1,40 @@
 #include <iostream>
+#include <map>
 using namespace std;
 
 // Prototype
 class Equipment
 {
 public:
+	Equipment(){};
 	virtual Equipment* clone() const = 0;
 	virtual void store() const = 0;
 	virtual ~Equipment() {};
+};
+
+// Prototype Manager
+class EquipmentManager
+{
+private:
+	map<string, Equipment*> prototypes;
+public:
+	virtual ~EquipmentManager()
+ 	{
+   		while(!prototypes.empty())
+   		{
+     		map<string, Equipment*>::iterator it = prototypes.begin();
+     		delete it->second;
+     		prototypes.erase(it);
+   		}
+ 	}
+	void registerPrototype(string& key, Equipment* prototype)
+	{
+		prototypes[key] = prototype;
+	}
+	Equipment* getPrototype(string& key)
+	{
+		return prototypes[key]->clone();
+	}
 };
 
 int main(){
