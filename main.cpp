@@ -1,8 +1,16 @@
 #include <iostream>
 using namespace std;
 
-int main(){
+// Prototype
+class Equipment
+{
+public:
+	virtual Equipment* clone() const = 0;
+	virtual void store() const = 0;
+	virtual ~Equipment() {};
+};
 
+int main(){
 	cout << "Jeff Austin's Gym" << endl;
 	cout << "------------------------------" << endl;
 
@@ -44,7 +52,7 @@ int main(){
 			default:
 				cout << "Invalid selection" << endl;
 		}
-		
+
 		cout << "" << endl;
 	}
 
