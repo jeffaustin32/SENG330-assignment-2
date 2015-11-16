@@ -120,7 +120,7 @@ int main(){
 	cout << "------------------------------" << endl;
 
 		while (true){
-		cout << "Menu: Select item number" << endl;
+		cout << endl << "Menu: Select item number" << endl;
 		cout << "1) Add equipment" << endl;
 		cout << "2) Remove equipment" << endl;
 		cout << "3) Import equipment" << endl;
@@ -169,10 +169,34 @@ int main(){
 		}
 		else if (menuSelection == 2)
 		{
-			cout << "Chose to remove equipment" << endl;
-			// Print list of all equipment
+			if (gymEquipment.size() == 0){
+				cout << "There is no equipment to remove!" << endl;
+				continue;
+			}
+
+			// Print out a list of all the current equipment
+			cout << "Here is all the current gym equipment:" << endl;
+			for(vector<Equipment*>::iterator it = gymEquipment.begin(); it != gymEquipment.end(); ++it) {
+			    cout << "  " << distance(gymEquipment.begin(), it) + 1 << ": " << (*it)->toString() << endl;
+			}
 			// Let user pick which to remove
-			
+			cout << "Enter the number of the equipment you'd like to remove: ";
+
+			int equipmentIndex;
+			cin >> equipmentIndex;
+
+			if (equipmentIndex <= 0){
+				cout << "Selection must be atleast 1!" << endl;
+				continue;
+			}
+
+			if (equipmentIndex > gymEquipment.size()){
+				cout << "Your selection does not correspond to an equipment!" << endl;
+				continue;
+			}
+
+			gymEquipment.erase(gymEquipment.begin() + equipmentIndex - 1);
+			cout << "Equipment removed" << endl;			
 		} 
 		else if (menuSelection == 3)
 		{		
@@ -184,6 +208,11 @@ int main(){
 		}
 		else if (menuSelection == 5)
 		{
+			if (gymEquipment.size() == 0){
+				cout << "There is no equipment to display!" << endl;
+				continue;
+			}
+
 			// Print out a list of all the current equipment
 			cout << "Here is all the current gym equipment:" << endl;
 			for(vector<Equipment*>::iterator it = gymEquipment.begin(); it != gymEquipment.end(); ++it) {
@@ -199,8 +228,6 @@ int main(){
 		{
 			cout << "Invalid selection" << endl;
 		}
-
-		cout << endl;
 	}
 
 	return 0;
