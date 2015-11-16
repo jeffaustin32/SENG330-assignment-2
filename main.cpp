@@ -1,5 +1,7 @@
 #include <iostream>
 #include <map>
+#include <vector>
+
 using namespace std;
 
 /*! \Equipment Prototype.
@@ -13,6 +15,7 @@ public:
 	virtual Equipment* clone() const = 0; //!< All derived classes must implement a clone operation.
 	virtual void store() const = 0; //!< All derived classes must implement the ability to serialize themselves.
 	virtual ~Equipment() {}; //!< Virtual destructor.
+	virtual string toString() const = 0;
 };
 
 /*! \ Prototype Manager
@@ -49,6 +52,13 @@ public:
 		}
 		return prototypes[key]->clone();
 	}
+	void printAvailablePrototypes()
+	{
+		for (map<string, Equipment*>::iterator it = prototypes.begin(); it != prototypes.end(); ++it)
+		{
+		 	cout << "  " << distance(prototypes.begin(), it) + 1 << ") " << it->first << endl;
+		}
+	}
 };
 
 class Treadmill : public Equipment
@@ -62,7 +72,11 @@ public:
 	void store() const
 	{ 
 		// Temp, will later return serialized version of Treadmill
-		cout << "Treadmill\n"; 
+		cout << "Treadmill" << endl; 
+	}
+	string toString() const
+	{
+		return "Treadmill";
 	}
 };
 
@@ -77,14 +91,22 @@ public:
 	void store() const
 	{ 
 		// Temp, will later return serialized version of Bowflex
-		cout << "Bowflex\n"; 
+		cout << "Bowflex" << endl; 
+	}
+	string toString() const
+	{
+		return "Bowflex";
 	}
 };
 
 int main(){
+	// Register all prototypes
 	EquipmentManager* equipmentManager = new EquipmentManager();
 	equipmentManager->registerPrototype("Treadmill", new Treadmill());
 	equipmentManager->registerPrototype("Bowflex", new Bowflex());
+
+	// Keep track of all equipment
+	vector<Equipment*> gymEquipment; 
 
 	cout << "Jeff Austin's Gym" << endl;
 	cout << "------------------------------" << endl;
@@ -102,32 +124,75 @@ int main(){
 		int menuSelection;
 		cout << "Selection: "; 
 		cin >> menuSelection;
+				
+		// Clear the input buffer
+		cin.clear(); 
+		cin.sync();
 
 		cout << "" << endl;
 
-		switch(menuSelection) {
-			case 1: 
-				break;
-			case 2:
-				cout << "Chose to remove equipment" << endl;
-				break;
-			case 3:
-				cout << "Chose to import equipment" << endl;
-				break;
-			case 4:
-				cout << "Chose to export equipment" << endl;
-				break;
-			case 5:
-				cout << "Chose to print list of equipment" << endl;				
-				break;
-			case 6:
-				cout << "Chose to exit" << endl;
-				return 0;
-			default:
-				cout << "Invalid selection" << endl;
+		if (menuSelection == 1)
+		{ 
+			// Used for creating new equipment
+			string equipmentSelection;
+
+			// Display available equipment types
+			cout << "Available equipment types are: " << endl;
+			equipmentManager->printAvailablePrototypes();
+
+			// Prompt user to enter a type
+			cout << "Enter the equipment type: ";
+			getline(cin, equipmentSelection);
+
+			// Try to create the new prototype
+			Equipment* newEquipment = equipmentManager->getPrototype(equipmentSelection);
+
+			// User's input was invalid
+			if (newEquipment == NULL)
+			{
+				cout << "Invalid equipment type" << endl;
+			} 
+			else 
+			{
+				// Add the new equipment
+				gymEquipment.push_back(newEquipment);
+				cout << "Added new " << equipmentSelection << "!" << endl; 
+			}
+		}
+		else if (menuSelection == 2)
+		{
+			cout << "Chose to remove equipment" << endl;
+			// Print list of all equipment
+			// Let user pick which to remove
+			
+		} 
+		else if (menuSelection == 3)
+		{		
+			cout << "Chose to import equipment" << endl;
+		}
+		else if (menuSelection == 4)
+		{
+			cout << "Chose to export equipment" << endl;
+		}
+		else if (menuSelection == 5)
+		{
+			// Print out a list of all the current equipment
+			cout << "Here is all the current gym equipment:" << endl;
+			for(vector<Equipment*>::iterator it = gymEquipment.begin(); it != gymEquipment.end(); ++it) {
+			    cout << "  " << distance(gymEquipment.begin(), it) + 1 << ": " << (*it)->toString() << endl;
+			}
+		}			
+		else if (menuSelection == 6)
+		{
+			cout << "Chose to exit" << endl;
+			return 0;
+		}
+		else
+		{
+			cout << "Invalid selection" << endl;
 		}
 
-		cout << "" << endl;
+		cout << endl;
 	}
 
 	return 0;
