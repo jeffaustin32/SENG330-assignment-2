@@ -2,22 +2,32 @@
 #include <map>
 using namespace std;
 
-// Prototype
+/*! \Equipment Prototype.
+ *         Base class for all equipment.
+ *
+ */
+ /*! Equipment Prototype */
 class Equipment
 {
 public:
-	Equipment(){};
-	virtual Equipment* clone() const = 0;
-	virtual void store() const = 0;
-	virtual ~Equipment() {};
+	virtual Equipment* clone() const = 0; //!< All derived classes must implement a clone operation.
+	virtual void store() const = 0; //!< All derived classes must implement the ability to serialize themselves.
+	virtual ~Equipment() {}; //!< Virtual destructor.
 };
 
-// Prototype Manager
+/*! \ Prototype Manager
+ *         Manage prototype creation.
+ *
+ *  Can register new prototypes and initialize new instances of new ones.
+ */
 class EquipmentManager
 {
 private:
 	map<string, Equipment*> prototypes;
 public:
+	EquipmentManager(){
+		prototypes;
+	}
 	virtual ~EquipmentManager()
  	{
    		while(!prototypes.empty())
@@ -27,17 +37,55 @@ public:
      		prototypes.erase(it);
    		}
  	}
-	void registerPrototype(string& key, Equipment* prototype)
+	void registerPrototype(const string& key, Equipment* prototype)
 	{
 		prototypes[key] = prototype;
 	}
-	Equipment* getPrototype(string& key)
+	Equipment* getPrototype(const string& key)
 	{
+		if (prototypes.count(key) == 0){
+			cout << "Invalid option";
+			return NULL;
+		}
 		return prototypes[key]->clone();
 	}
 };
 
+class Treadmill : public Equipment
+{
+public:
+	Treadmill(){}	
+	Treadmill* clone() const
+	{ 
+   		return new Treadmill();
+	}
+	void store() const
+	{ 
+		// Temp, will later return serialized version of Treadmill
+		cout << "Treadmill\n"; 
+	}
+};
+
+class Bowflex : public Equipment
+{
+public:
+	Bowflex(){}	
+	Bowflex* clone() const
+	{ 
+   		return new Bowflex();
+	}
+	void store() const
+	{ 
+		// Temp, will later return serialized version of Bowflex
+		cout << "Bowflex\n"; 
+	}
+};
+
 int main(){
+	EquipmentManager* equipmentManager = new EquipmentManager();
+	equipmentManager->registerPrototype("Treadmill", new Treadmill());
+	equipmentManager->registerPrototype("Bowflex", new Bowflex());
+
 	cout << "Jeff Austin's Gym" << endl;
 	cout << "------------------------------" << endl;
 
@@ -59,7 +107,6 @@ int main(){
 
 		switch(menuSelection) {
 			case 1: 
-				cout << "Chose to add equipment" << endl;
 				break;
 			case 2:
 				cout << "Chose to remove equipment" << endl;
@@ -71,7 +118,7 @@ int main(){
 				cout << "Chose to export equipment" << endl;
 				break;
 			case 5:
-				cout << "Chose to print list of equipment" << endl;
+				cout << "Chose to print list of equipment" << endl;				
 				break;
 			case 6:
 				cout << "Chose to exit" << endl;
