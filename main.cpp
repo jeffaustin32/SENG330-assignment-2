@@ -5,32 +5,32 @@
 using namespace std;
 
 /*! \Equipment Prototype.
- *         Base class for all equipment.
+ *         Virtual base class for all equipment.	
  *
  */
  /*! Equipment Prototype */
 class Equipment
 {
 public:
-	virtual Equipment* clone() const = 0; //!< All derived classes must implement a clone operation.
-	virtual void store() const = 0; //!< All derived classes must implement the ability to serialize themselves.
-	virtual ~Equipment() {}; //!< Virtual destructor.
+	/// Create a clone of this piece of equipment at the same state
+	virtual Equipment* clone() const = 0;
+	/// Serialize this piece of equipment as JSON
+	virtual void store() const = 0;
+	/// Return a string representation of this piece of equipment
 	virtual string toString() const = 0;
+	virtual ~Equipment() {};
 };
 
-/*! \ Prototype Manager
- *         Manage prototype creation.
+/*! EquipmentManager manages prototypes.
  *
- *  Can register new prototypes and initialize new instances of new ones.
+ *  Use EquipmentManager to register new prototypes, initialize instances, and access any information regarding the registered prototypes.
  */
 class EquipmentManager
 {
 private:
 	map<string, Equipment*> prototypes;
 public:
-	EquipmentManager(){
-		prototypes;
-	}
+	/// When the equipment manager is destroyed, have all equipment destroy itself also
 	virtual ~EquipmentManager()
  	{
    		while(!prototypes.empty())
@@ -40,18 +40,20 @@ public:
      		prototypes.erase(it);
    		}
  	}
+	/// Register a prototype so subsequent equipment can be cloned
 	void registerPrototype(const string& key, Equipment* prototype)
 	{
 		prototypes[key] = prototype;
 	}
+	/// Have the requested equipment type clone itself
 	Equipment* getPrototype(const string& key)
 	{
 		if (prototypes.count(key) == 0){
-			cout << "Invalid option";
 			return NULL;
 		}
 		return prototypes[key]->clone();
 	}
+	/// Print the name of all available prototypes
 	void printAvailablePrototypes()
 	{
 		for (map<string, Equipment*>::iterator it = prototypes.begin(); it != prototypes.end(); ++it)
@@ -65,15 +67,18 @@ class Treadmill : public Equipment
 {
 public:
 	Treadmill(){}	
+	/// Create a clone of this piece of equipment at the same state
 	Treadmill* clone() const
 	{ 
    		return new Treadmill();
 	}
+	/// Serialize this piece of equipment as JSON 
 	void store() const
 	{ 
 		// Temp, will later return serialized version of Treadmill
 		cout << "Treadmill" << endl; 
 	}
+	/// Return a string representation of this piece of equipment, in this case 'Treadmill'
 	string toString() const
 	{
 		return "Treadmill";
@@ -84,15 +89,18 @@ class Bowflex : public Equipment
 {
 public:
 	Bowflex(){}	
+	/// Create a clone of this piece of equipment at the same state
 	Bowflex* clone() const
 	{ 
    		return new Bowflex();
 	}
+	/// Serialize this piece of equipment as JSON 
 	void store() const
 	{ 
 		// Temp, will later return serialized version of Bowflex
 		cout << "Bowflex" << endl; 
 	}
+	/// Return a string representation of this piece of equipment, in this case 'Bowflex'
 	string toString() const
 	{
 		return "Bowflex";
