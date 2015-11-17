@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['store',['store',['../class_equipment.html#a9db9134f9e60c62d66fd6184ace985c3',1,'Equipment::store()'],['../class_treadmill.html#a62c7b79ca95f62d6ec3720cdaab9cbf0',1,'Treadmill::store()'],['../class_bowflex.html#aa9b13846ba3101cde05db6f2dfe35218',1,'Bowflex::store()']]]
+  ['serialize',['serialize',['../class_equipment.html#adc36912d637c7c445db05cab803abeb3',1,'Equipment::serialize()'],['../class_treadmill.html#a3317a5d36f9344fc2cbfa229fd9a5ace',1,'Treadmill::serialize()'],['../class_bowflex.html#a6dacc10859384c1fb25f0832c63c5962',1,'Bowflex::serialize()']]]
 ];

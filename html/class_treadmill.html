@@ -101,18 +101,39 @@ Inheritance diagram for Treadmill:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a0ee14af654d7c248aaadc0f3f68376c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ee14af654d7c248aaadc0f3f68376c7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Treadmill</b> (string inBrand)</td></tr>
+<tr class="separator:a0ee14af654d7c248aaadc0f3f68376c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3104f532767a01da7e48a9935242a032"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3104f532767a01da7e48a9935242a032"></a>
 <a class="el" href="class_treadmill.html">Treadmill</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_treadmill.html#a3104f532767a01da7e48a9935242a032">clone</a> () const </td></tr>
 <tr class="memdesc:a3104f532767a01da7e48a9935242a032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a clone of this piece of equipment at the same state. <br /></td></tr>
 <tr class="separator:a3104f532767a01da7e48a9935242a032"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62c7b79ca95f62d6ec3720cdaab9cbf0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62c7b79ca95f62d6ec3720cdaab9cbf0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_treadmill.html#a62c7b79ca95f62d6ec3720cdaab9cbf0">store</a> () const </td></tr>
-<tr class="memdesc:a62c7b79ca95f62d6ec3720cdaab9cbf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize this piece of equipment as JSON. <br /></td></tr>
-<tr class="separator:a62c7b79ca95f62d6ec3720cdaab9cbf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a695c6c44899532cb3505833f4d6dd031"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a695c6c44899532cb3505833f4d6dd031"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_treadmill.html#a695c6c44899532cb3505833f4d6dd031">toString</a> () const </td></tr>
 <tr class="memdesc:a695c6c44899532cb3505833f4d6dd031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a string representation of this piece of equipment, in this case '<a class="el" href="class_treadmill.html">Treadmill</a>'. <br /></td></tr>
 <tr class="separator:a695c6c44899532cb3505833f4d6dd031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3317a5d36f9344fc2cbfa229fd9a5ace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3317a5d36f9344fc2cbfa229fd9a5ace"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_treadmill.html#a3317a5d36f9344fc2cbfa229fd9a5ace">serialize</a> (std::ostream &amp;os) const </td></tr>
+<tr class="memdesc:a3317a5d36f9344fc2cbfa229fd9a5ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize this piece of equipment as JSON. <br /></td></tr>
+<tr class="separator:a3317a5d36f9344fc2cbfa229fd9a5ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_equipment"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_equipment')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_equipment.html">Equipment</a></td></tr>
+<tr class="memitem:a7547b5114f15bb1bdc4ddc1c14da3c8d inherit pub_methods_class_equipment"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7547b5114f15bb1bdc4ddc1c14da3c8d"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment.html#a7547b5114f15bb1bdc4ddc1c14da3c8d">~Equipment</a> ()</td></tr>
+<tr class="memdesc:a7547b5114f15bb1bdc4ddc1c14da3c8d inherit pub_methods_class_equipment"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the brand. <br /></td></tr>
+<tr class="separator:a7547b5114f15bb1bdc4ddc1c14da3c8d inherit pub_methods_class_equipment"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca4a2e4c4b29ad6d3361d8202e1e1c0c inherit pub_methods_class_equipment"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca4a2e4c4b29ad6d3361d8202e1e1c0c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setBrand</b> (string inBrand)</td></tr>
+<tr class="separator:aca4a2e4c4b29ad6d3361d8202e1e1c0c inherit pub_methods_class_equipment"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7138347e7a1f4651f5638ad148c4b7e1 inherit pub_methods_class_equipment"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7138347e7a1f4651f5638ad148c4b7e1"></a>
+virtual string&#160;</td><td class="memItemRight" valign="bottom"><b>getBrand</b> ()</td></tr>
+<tr class="separator:a7138347e7a1f4651f5638ad148c4b7e1 inherit pub_methods_class_equipment"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_equipment"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_equipment')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_equipment.html">Equipment</a></td></tr>
+<tr class="memitem:a03df46453d0266dd69b88b827cbd7f98 inherit pro_attribs_class_equipment"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03df46453d0266dd69b88b827cbd7f98"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>brand</b></td></tr>
+<tr class="separator:a03df46453d0266dd69b88b827cbd7f98 inherit pro_attribs_class_equipment"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>main.cpp</li>
