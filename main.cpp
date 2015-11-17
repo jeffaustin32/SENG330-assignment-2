@@ -22,8 +22,14 @@ public:
 	/// Serialize the equipment as JSON
   	virtual void serialize(std::ostream& os) const = 0; 
   	/// Set the brand
-  	virtual void setBrand(string) = 0;
 	virtual ~Equipment() {};
+  	virtual void setBrand(string inBrand)
+  	{
+  		brand = inBrand;
+  	}
+  	virtual string getBrand(){
+  		return brand;
+  	}
 };
 
 std::ostream& operator<< (std::ostream& os, const Equipment& s) {
@@ -90,10 +96,6 @@ public:
 	{
 		return "Treadmill";
 	}
-  	void setBrand(string inBrand)
-  	{
-  		brand = inBrand;
-  	}
 	/// Serialize this piece of equipment as JSON 
 	virtual void serialize(std::ostream& os) const {
 	    os << "{\n\t\t\"type\": \"Treadmill\",\n\t\t\"brand\": \"" << brand << "\"\n\t}";
@@ -117,10 +119,6 @@ public:
 	{
 		return "Bowflex";
 	}
-  	void setBrand(string inBrand)
-  	{
-  		brand = inBrand;
-  	}
 	/// Serialize this piece of equipment as JSON
 	virtual void serialize(std::ostream& os) const {
 	    os << "{\n\t\t\"type\": \"Bowflex\",\n\t\t\"brand\": \"" << brand << "\"\n\t}";
