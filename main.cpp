@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <map>
 #include <vector>
 
@@ -11,15 +12,21 @@ using namespace std;
  /*! Equipment Prototype */
 class Equipment
 {
+protected:
+	string brand; 
 public:
 	/// Create a clone of this piece of equipment at the same state
 	virtual Equipment* clone() const = 0;
-	/// Serialize this piece of equipment as JSON
-	virtual void store() const = 0;
 	/// Return a string representation of this piece of equipment
 	virtual string toString() const = 0;
 	virtual ~Equipment() {};
+  	virtual void serialize(std::ostream& os) const = 0; 
 };
+
+std::ostream& operator<< (std::ostream& os, const Equipment& s) {
+  s.serialize(os);
+  return os;
+}
 
 /*! EquipmentManager manages prototypes.
  *
@@ -66,52 +73,54 @@ public:
 class Treadmill : public Equipment
 {
 public:
-	Treadmill(){}	
+	Treadmill(string inBrand)
+	{
+		brand = inBrand;
+	}	
 	/// Create a clone of this piece of equipment at the same state
 	Treadmill* clone() const
 	{ 
-   		return new Treadmill();
-	}
-	/// Serialize this piece of equipment as JSON 
-	void store() const
-	{ 
-		// Temp, will later return serialized version of Treadmill
-		cout << "Treadmill" << endl; 
+   		return new Treadmill(this->brand);
 	}
 	/// Return a string representation of this piece of equipment, in this case 'Treadmill'
 	string toString() const
 	{
 		return "Treadmill";
 	}
+	/// Serialize this piece of equipment as JSON 
+	virtual void serialize(std::ostream& os) const {
+	    os << "{\n\t\t\"type\": \"Treadmill\",\n\t\t\"brand\": \"" << brand << "\"\n\t}";
+  	}
 };
 
 class Bowflex : public Equipment
 {
 public:
-	Bowflex(){}	
+	Bowflex(string inBrand)
+	{
+		brand = inBrand;
+	}	
 	/// Create a clone of this piece of equipment at the same state
 	Bowflex* clone() const
 	{ 
-   		return new Bowflex();
-	}
-	/// Serialize this piece of equipment as JSON 
-	void store() const
-	{ 
-		// Temp, will later return serialized version of Bowflex
-		cout << "Bowflex" << endl; 
+   		return new Bowflex(this->brand);
 	}
 	/// Return a string representation of this piece of equipment, in this case 'Bowflex'
 	string toString() const
 	{
 		return "Bowflex";
 	}
+	/// Serialize this piece of equipment as JSON
+	virtual void serialize(std::ostream& os) const {
+	    os << "{\n\t\t\"type\": \"Bowflex\",\n\t\t\"brand\": \"" << brand << "\"\n\t}";
+  	}
 };
 
 int main(){
 	// Register all prototypes
 	EquipmentManager* equipmentManager = new EquipmentManager();
-	equipmentManager->registerPrototype("Treadmill", new Treadmill());
-	equipmentManager->registerPrototype("Bowflex", new Bowflex());
+	equipmentManager->registerPrototype("Treadmill", new Treadmill("Forest Gump Inc"));
+	equipmentManager->registerPrototype("Bowflex", new Bowflex("Macho Man Limited"));
 
 	// Keep track of all equipment
 	vector<Equipment*> gymEquipment; 
@@ -200,11 +209,47 @@ int main(){
 		} 
 		else if (menuSelection == 3)
 		{		
-			cout << "Chose to import equipment" << endl;
+			// Define the file stream
+		  	std::fstream fs;
+			fs.open ("equipment.JSON", std::fstream::out);
+
+			fs << "{\n\t\"equipment\": [";
+			for(vector<Equipment*>::iterator it = gymEquipment.begin(); it != gymEquipment.end(); ++it) {
+			    fs << (*(*it));
+			    // Determine if this is the last item
+			    bool last_iteration = it == (--gymEquipment.end());
+
+				// If not, add a comma
+				if (! last_iteration){
+					fs << ", ";
+				} 			
+			}
+			fs << "]\n}";
+
+			fs.close();
+
+			cout << "Saved to equipment.JSON" << endl;
 		}
 		else if (menuSelection == 4)
 		{
-			cout << "Chose to export equipment" << endl;
+			// Define the file stream
+		  	std::fstream fs;
+			fs.open ("equipment.JSON", std::fstream::out);
+
+			fs << "{\n\t\"equipment\": [";
+			for(vector<Equipment*>::iterator it = gymEquipment.begin(); it != gymEquipment.end(); ++it) {
+			    fs << (*(*it));
+			    // Determine if this is the last item
+			    bool last_iteration = it == (--gymEquipment.end());
+
+				// If not, add a comma
+				if (! last_iteration){
+					fs << ", ";
+				} 			
+			}
+			fs << "]\n}";
+
+			fs.close();
 		}
 		else if (menuSelection == 5)
 		{
