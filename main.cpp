@@ -19,8 +19,11 @@ public:
 	virtual Equipment* clone() const = 0;
 	/// Return a string representation of this piece of equipment
 	virtual string toString() const = 0;
-	virtual ~Equipment() {};
+	/// Serialize the equipment as JSON
   	virtual void serialize(std::ostream& os) const = 0; 
+  	/// Set the brand
+  	virtual void setBrand(string) = 0;
+	virtual ~Equipment() {};
 };
 
 std::ostream& operator<< (std::ostream& os, const Equipment& s) {
@@ -87,6 +90,10 @@ public:
 	{
 		return "Treadmill";
 	}
+  	void setBrand(string inBrand)
+  	{
+  		brand = inBrand;
+  	}
 	/// Serialize this piece of equipment as JSON 
 	virtual void serialize(std::ostream& os) const {
 	    os << "{\n\t\t\"type\": \"Treadmill\",\n\t\t\"brand\": \"" << brand << "\"\n\t}";
@@ -110,6 +117,10 @@ public:
 	{
 		return "Bowflex";
 	}
+  	void setBrand(string inBrand)
+  	{
+  		brand = inBrand;
+  	}
 	/// Serialize this piece of equipment as JSON
 	virtual void serialize(std::ostream& os) const {
 	    os << "{\n\t\t\"type\": \"Bowflex\",\n\t\t\"brand\": \"" << brand << "\"\n\t}";
@@ -211,30 +222,58 @@ int main(){
 		{		
 			// Define the file stream
 		  	std::fstream fs;
-			fs.open ("equipment.JSON", std::fstream::out);
+			fs.open ("equipment.JSON", fstream::in);
 
-			fs << "{\n\t\"equipment\": [";
-			for(vector<Equipment*>::iterator it = gymEquipment.begin(); it != gymEquipment.end(); ++it) {
-			    fs << (*(*it));
-			    // Determine if this is the last item
-			    bool last_iteration = it == (--gymEquipment.end());
+			string line;
 
-				// If not, add a comma
-				if (! last_iteration){
-					fs << ", ";
-				} 			
+			size_t typeIndexStart;
+			size_t typeIndexEnd;
+
+			size_t brandIndexStart;
+			size_t brandIndexEnd;
+
+			string typeDelimiter = "\"type\": \"";
+			string brandDelimiter = "\"brand\": \"";
+
+			int importCount = 0;
+
+			// Go through all lines in the file
+			while (std::getline(fs, line)) {
+				// Found the 'type' keyword
+				if (typeIndexStart = line.find(typeDelimiter) != string::npos){
+					// Get the type
+					line.erase(0, typeIndexStart + typeDelimiter.length() + 1);
+					typeIndexEnd = line.find("\"");
+					string equipmentType = line.substr(0, typeIndexEnd);
+
+					// Get the brand
+					std::getline(fs, line);
+					brandIndexStart = line.find(brandDelimiter);
+					line.erase(0, brandIndexStart + brandDelimiter.length());
+					brandIndexEnd = line.find("\"");
+					string equipmentBrand = line.substr(0, brandIndexEnd);
+
+					// Get a new prototype and set the brand
+					Equipment* newEquipment = equipmentManager->getPrototype(equipmentType);
+					newEquipment->setBrand(equipmentBrand);
+
+					// Add it to the gym's equipment
+					gymEquipment.push_back(newEquipment);
+					cout << "Added \"" << equipmentBrand << "\" brand " << equipmentType << endl; 
+
+					importCount ++;
+				}
 			}
-			fs << "]\n}";
 
 			fs.close();
 
-			cout << "Saved to equipment.JSON" << endl;
+			cout << "Imported " << importCount << " items!" << endl;
 		}
 		else if (menuSelection == 4)
 		{
 			// Define the file stream
 		  	std::fstream fs;
-			fs.open ("equipment.JSON", std::fstream::out);
+			fs.open ("equipment.JSON", fstream::out);
 
 			fs << "{\n\t\"equipment\": [";
 			for(vector<Equipment*>::iterator it = gymEquipment.begin(); it != gymEquipment.end(); ++it) {
