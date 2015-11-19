@@ -1,129 +1,12 @@
 #include <iostream>
 #include <fstream>
-#include <map>
 #include <vector>
 
+#include "classes/EquipmentManager.h"
+#include "classes/Treadmill.h"
+#include "classes/Bowflex.h"
+
 using namespace std;
-
-/*! \Equipment Prototype.
- *         Virtual base class for all equipment.	
- *
- */
- /*! Equipment Prototype */
-class Equipment
-{
-protected:
-	string brand; 
-public:
-	/// Create a clone of this piece of equipment at the same state
-	virtual Equipment* clone() const = 0;
-	/// Return a string representation of this piece of equipment
-	virtual string toString() const = 0;
-	/// Serialize the equipment as JSON
-  	virtual void serialize(std::ostream& os) const = 0; 
-  	/// Set the brand
-	virtual ~Equipment() {};
-  	virtual void setBrand(string inBrand)
-  	{
-  		brand = inBrand;
-  	}
-  	virtual string getBrand(){
-  		return brand;
-  	}
-};
-
-std::ostream& operator<< (std::ostream& os, const Equipment& s) {
-  s.serialize(os);
-  return os;
-}
-
-/*! EquipmentManager manages prototypes.
- *
- *  Use EquipmentManager to register new prototypes, initialize instances, and access any information regarding the registered prototypes.
- */
-class EquipmentManager
-{
-private:
-	map<string, Equipment*> prototypes;
-public:
-	/// When the equipment manager is destroyed, have all equipment destroy itself also
-	virtual ~EquipmentManager()
- 	{
-   		while(!prototypes.empty())
-   		{
-     		map<string, Equipment*>::iterator it = prototypes.begin();
-     		delete it->second;
-     		prototypes.erase(it);
-   		}
- 	}
-	/// Register a prototype so subsequent equipment can be cloned
-	void registerPrototype(const string& key, Equipment* prototype)
-	{
-		prototypes[key] = prototype;
-	}
-	/// Have the requested equipment type clone itself
-	Equipment* getPrototype(const string& key)
-	{
-		if (prototypes.count(key) == 0){
-			return NULL;
-		}
-		return prototypes[key]->clone();
-	}
-	/// Print the name of all available prototypes
-	void printAvailablePrototypes()
-	{
-		for (map<string, Equipment*>::iterator it = prototypes.begin(); it != prototypes.end(); ++it)
-		{
-		 	cout << "  " << distance(prototypes.begin(), it) + 1 << ") " << it->first << endl;
-		}
-	}
-};
-
-class Treadmill : public Equipment
-{
-public:
-	Treadmill(string inBrand)
-	{
-		brand = inBrand;
-	}	
-	/// Create a clone of this piece of equipment at the same state
-	Treadmill* clone() const
-	{ 
-   		return new Treadmill(this->brand);
-	}
-	/// Return a string representation of this piece of equipment, in this case 'Treadmill'
-	string toString() const
-	{
-		return "Treadmill";
-	}
-	/// Serialize this piece of equipment as JSON 
-	virtual void serialize(std::ostream& os) const {
-	    os << "{\n\t\t\"type\": \"Treadmill\",\n\t\t\"brand\": \"" << brand << "\"\n\t}";
-  	}
-};
-
-class Bowflex : public Equipment
-{
-public:
-	Bowflex(string inBrand)
-	{
-		brand = inBrand;
-	}	
-	/// Create a clone of this piece of equipment at the same state
-	Bowflex* clone() const
-	{ 
-   		return new Bowflex(this->brand);
-	}
-	/// Return a string representation of this piece of equipment, in this case 'Bowflex'
-	string toString() const
-	{
-		return "Bowflex";
-	}
-	/// Serialize this piece of equipment as JSON
-	virtual void serialize(std::ostream& os) const {
-	    os << "{\n\t\t\"type\": \"Bowflex\",\n\t\t\"brand\": \"" << brand << "\"\n\t}";
-  	}
-};
 
 int main(){
 	// Register all prototypes
@@ -164,10 +47,10 @@ int main(){
 
 			// Display available equipment types
 			cout << "Available equipment types are: " << endl;
-			equipmentManager->printAvailablePrototypes();
+			cout << *equipmentManager << endl;
 
 			// Prompt user to enter a type
-			cout << "Enter the equipment type: ";
+			cout << "Enter the name of the equipment to add: ";
 			getline(cin, equipmentSelection);
 
 			// Try to create the new prototype

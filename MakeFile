@@ -1,0 +1,30 @@
+CC=g++
+CFLAGS=-c
+
+SRC=Equipment.cpp Treadmill.cpp Bowflex.cpp EquipmentManager.cpp main.cpp
+OBJ=$(SRC:.cpp=.o)
+
+DIR=classes/
+
+all: Gym
+
+Gym: Equipment.o Treadmill.o Bowflex.o EquipmentManager.o Main.o
+	g++ classes/Equipment.cpp classes/Treadmill.cpp classes/Bowflex.cpp classes/EquipmentManager.cpp main.cpp -o main.exe
+
+Main.o: Main.cpp
+	$(CC) $(CFLAGS) main.cpp
+
+Equipment.o: $(DIR)Equipment.cpp
+	$(CC) $(CFLAGS) $(DIR)Equipment.cpp
+
+Treadmill.o: $(DIR)Treadmill.cpp
+	$(CC) $(CFLAGS) $(DIR)Treadmill.cpp
+
+Bowflex.o: $(DIR)Bowflex.cpp
+	$(CC) $(CFLAGS) $(DIR)Bowflex.cpp
+
+EquipmentManager.o: $(DIR)EquipmentManager.cpp
+	$(CC) $(CFLAGS) $(DIR)EquipmentManager.cpp
+
+clean:
+	del $(OBJ)
