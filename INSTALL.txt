@@ -1,5 +1,6 @@
-Installation instructions:
-1. Compile main.cpp
-2. Run it
+All installation instructions are for use with MinGW and may vary if using a different compiler.
 
-No external dependencies
+Installation instructions:
+1. From command line run: "mingw32-make -f MakeFile clean"
+	This will compile all resources and cleanup all intermediary files.
+2. Run "main", to execute the application.
