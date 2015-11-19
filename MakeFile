@@ -1,30 +1,33 @@
 CC=g++
 CFLAGS=-c
 
-SRC=Equipment.cpp Treadmill.cpp Bowflex.cpp EquipmentManager.cpp main.cpp
+SRC=Equipment.cpp Treadmill.cpp Bowflex.cpp EquipmentManager.cpp Gym.cpp main.cpp
 OBJ=$(SRC:.cpp=.o)
 
 DIR=classes/
 
 all: Gym
 
-Gym: Equipment.o Treadmill.o Bowflex.o EquipmentManager.o Main.o
-	g++ classes/Equipment.cpp classes/Treadmill.cpp classes/Bowflex.cpp classes/EquipmentManager.cpp main.cpp -o main.exe
+Gym: $(DIR)Equipment.o $(DIR)Treadmill.o $(DIR)Bowflex.o $(DIR)EquipmentManager.o $(DIR)Gym.o Main.o
+	g++ $(DIR)Equipment.cpp $(DIR)Treadmill.cpp $(DIR)Bowflex.cpp $(DIR)EquipmentManager.cpp $(DIR)Gym.cpp main.cpp -o main.exe
 
-Main.o: Main.cpp
+Main.o: $(DIR)Equipment.o $(DIR)Treadmill.o $(DIR)Bowflex.o $(DIR)EquipmentManager.o $(DIR)Gym.o
 	$(CC) $(CFLAGS) main.cpp
 
-Equipment.o: $(DIR)Equipment.cpp
+Equipment.o:
 	$(CC) $(CFLAGS) $(DIR)Equipment.cpp
 
-Treadmill.o: $(DIR)Treadmill.cpp
+Treadmill.o: $(DIR)Equipment.o
 	$(CC) $(CFLAGS) $(DIR)Treadmill.cpp
 
-Bowflex.o: $(DIR)Bowflex.cpp
+Bowflex.o: $(DIR)Equipment.o
 	$(CC) $(CFLAGS) $(DIR)Bowflex.cpp
 
-EquipmentManager.o: $(DIR)EquipmentManager.cpp
+EquipmentManager.o: $(DIR)Treadmill.o $(DIR)Bowflex.o
 	$(CC) $(CFLAGS) $(DIR)EquipmentManager.cpp
+
+Gym.o: $(DIR)EquipmentManager.o
+	$(CC) $(CFLAGS) $(DIR)Gym.cpp
 
 clean:
 	del $(OBJ)
