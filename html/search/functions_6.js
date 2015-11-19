@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7eequipment',['~Equipment',['../class_equipment.html#a7547b5114f15bb1bdc4ddc1c14da3c8d',1,'Equipment']]],
-  ['_7eequipmentmanager',['~EquipmentManager',['../class_equipment_manager.html#a8cf5a5bb4da177e2323df46372a02f78',1,'EquipmentManager']]]
+  ['printavailableprototypes',['printAvailablePrototypes',['../class_equipment_manager.html#ac3a359204e3460e07f241599e888f9fa',1,'EquipmentManager']]],
+  ['printequipment',['printEquipment',['../class_gym.html#ab5dcdfbe1701e5c478408d82d1c03c03',1,'Gym']]]
 ];

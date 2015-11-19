@@ -3,9 +3,15 @@
 
 #include "Equipment.h"
 
+/*! \Treadmill.
+ *         Concrete implementation of equipment.	
+ *
+ */
+ /*! Treadmill */
 class Treadmill : public Equipment
 {
 public:
+	/// Create a new Treadmill with provided brand
 	Treadmill(std::string inBrand);
 	/// Create a clone of this piece of equipment at the same state
 	Treadmill* clone() const;

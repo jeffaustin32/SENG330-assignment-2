@@ -1,18 +1,22 @@
 \hypertarget{class_equipment_manager}{}\section{Equipment\+Manager Class Reference}
 \label{class_equipment_manager}\index{Equipment\+Manager@{Equipment\+Manager}}
+
+
+{\ttfamily \#include $<$Equipment\+Manager.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_equipment_manager_a8cf5a5bb4da177e2323df46372a02f78}{}virtual \hyperlink{class_equipment_manager_a8cf5a5bb4da177e2323df46372a02f78}{$\sim$\+Equipment\+Manager} ()\label{class_equipment_manager_a8cf5a5bb4da177e2323df46372a02f78}
+\hypertarget{class_equipment_manager_af46a4c47fdf8c30b9f57289b26ce1bb7}{}virtual \hyperlink{class_equipment_manager_af46a4c47fdf8c30b9f57289b26ce1bb7}{$\sim$\+Equipment\+Manager} ()\label{class_equipment_manager_af46a4c47fdf8c30b9f57289b26ce1bb7}
 
 \begin{DoxyCompactList}\small\item\em When the equipment manager is destroyed, have all equipment destroy itself also. \end{DoxyCompactList}\item 
-\hypertarget{class_equipment_manager_ae4a2d6042ec154263cc69227fd80237d}{}void \hyperlink{class_equipment_manager_ae4a2d6042ec154263cc69227fd80237d}{register\+Prototype} (const string \&key, \hyperlink{class_equipment}{Equipment} $\ast$prototype)\label{class_equipment_manager_ae4a2d6042ec154263cc69227fd80237d}
+\hypertarget{class_equipment_manager_a9b0b1f9a7bfd3a2f6f175861934d5209}{}void \hyperlink{class_equipment_manager_a9b0b1f9a7bfd3a2f6f175861934d5209}{register\+Prototype} (const std\+::string \&key, \hyperlink{class_equipment}{Equipment} $\ast$prototype)\label{class_equipment_manager_a9b0b1f9a7bfd3a2f6f175861934d5209}
 
 \begin{DoxyCompactList}\small\item\em Register a prototype so subsequent equipment can be cloned. \end{DoxyCompactList}\item 
-\hypertarget{class_equipment_manager_a646da096ab0d5a52eeb925c871c59067}{}\hyperlink{class_equipment}{Equipment} $\ast$ \hyperlink{class_equipment_manager_a646da096ab0d5a52eeb925c871c59067}{get\+Prototype} (const string \&key)\label{class_equipment_manager_a646da096ab0d5a52eeb925c871c59067}
+\hypertarget{class_equipment_manager_a5fa1699c3d15509e0919398ae26996b9}{}\hyperlink{class_equipment}{Equipment} $\ast$ \hyperlink{class_equipment_manager_a5fa1699c3d15509e0919398ae26996b9}{get\+Prototype} (const std\+::string \&key)\label{class_equipment_manager_a5fa1699c3d15509e0919398ae26996b9}
 
 \begin{DoxyCompactList}\small\item\em Have the requested equipment type clone itself. \end{DoxyCompactList}\item 
-\hypertarget{class_equipment_manager_aad2e6bc9c428ad79f4b4edbf9243cabc}{}void \hyperlink{class_equipment_manager_aad2e6bc9c428ad79f4b4edbf9243cabc}{print\+Available\+Prototypes} ()\label{class_equipment_manager_aad2e6bc9c428ad79f4b4edbf9243cabc}
+\hypertarget{class_equipment_manager_ac3a359204e3460e07f241599e888f9fa}{}std\+::ostream \& \hyperlink{class_equipment_manager_ac3a359204e3460e07f241599e888f9fa}{print\+Available\+Prototypes} (std\+::ostream \&os) const \label{class_equipment_manager_ac3a359204e3460e07f241599e888f9fa}
 
 \begin{DoxyCompactList}\small\item\em Print the name of all available prototypes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -22,6 +26,7 @@
 
 Use \hyperlink{class_equipment_manager}{Equipment\+Manager} to register new prototypes, initialize instances, and access any information regarding the registered prototypes. 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-main.\+cpp\end{DoxyCompactItemize}
+classes/Equipment\+Manager.\+h\item 
+classes/Equipment\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['serialize',['serialize',['../class_equipment.html#adc36912d637c7c445db05cab803abeb3',1,'Equipment::serialize()'],['../class_treadmill.html#a3317a5d36f9344fc2cbfa229fd9a5ace',1,'Treadmill::serialize()'],['../class_bowflex.html#a6dacc10859384c1fb25f0832c63c5962',1,'Bowflex::serialize()']]]
+  ['getprototype',['getPrototype',['../class_equipment_manager.html#a5fa1699c3d15509e0919398ae26996b9',1,'EquipmentManager']]],
+  ['gym',['Gym',['../class_gym.html#aeff68740b0a85da7a90889f8d9d71557',1,'Gym']]]
 ];

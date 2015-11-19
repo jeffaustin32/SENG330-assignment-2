@@ -3,9 +3,15 @@
 
 #include "Equipment.h"
 
+/*! \Bowflex.
+ *         Concrete implementation of equipment.	
+ *
+ */
+ /*! Bowflex */
 class Bowflex : public Equipment
 {
 public:
+	/// Create a new Bowflex with a provided brand
 	Bowflex(std::string inBrand);
 	/// Create a clone of this piece of equipment at the same state
 	Bowflex* clone() const;

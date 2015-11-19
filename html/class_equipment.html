@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: Equipment Class Reference</title>
+<title>SENG330 - Assignment 2: Equipment Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">SENG330 - Assignment 2
    </div>
+   <div id="projectbrief">C++ implementation of a basic gym equipment management system.</div>
   </td>
  </tr>
  </tbody>
@@ -38,8 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -90,6 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Equipment Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_equipment_8h_source.html">Equipment.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Equipment:</div>
 <div class="dyncontent">
@@ -107,10 +110,10 @@ Public Member Functions</h2></td></tr>
 virtual <a class="el" href="class_equipment.html">Equipment</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment.html#a5c6929939d117e84e182e21a62a7723a">clone</a> () const  =0</td></tr>
 <tr class="memdesc:a5c6929939d117e84e182e21a62a7723a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a clone of this piece of equipment at the same state. <br /></td></tr>
 <tr class="separator:a5c6929939d117e84e182e21a62a7723a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc1e79be9fcf87bd78e073c5177f89e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc1e79be9fcf87bd78e073c5177f89e5"></a>
-virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment.html#adc1e79be9fcf87bd78e073c5177f89e5">toString</a> () const  =0</td></tr>
-<tr class="memdesc:adc1e79be9fcf87bd78e073c5177f89e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a string representation of this piece of equipment. <br /></td></tr>
-<tr class="separator:adc1e79be9fcf87bd78e073c5177f89e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a970f5be54182c0067cb2cbb72c0029b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a970f5be54182c0067cb2cbb72c0029b6"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment.html#a970f5be54182c0067cb2cbb72c0029b6">toString</a> () const  =0</td></tr>
+<tr class="memdesc:a970f5be54182c0067cb2cbb72c0029b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a string representation of this piece of equipment. <br /></td></tr>
+<tr class="separator:a970f5be54182c0067cb2cbb72c0029b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc36912d637c7c445db05cab803abeb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc36912d637c7c445db05cab803abeb3"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment.html#adc36912d637c7c445db05cab803abeb3">serialize</a> (std::ostream &amp;os) const  =0</td></tr>
 <tr class="memdesc:adc36912d637c7c445db05cab803abeb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize the equipment as JSON. <br /></td></tr>
@@ -119,24 +122,25 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment.html#a7547b5114f15bb1bdc4ddc1c14da3c8d">~Equipment</a> ()</td></tr>
 <tr class="memdesc:a7547b5114f15bb1bdc4ddc1c14da3c8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the brand. <br /></td></tr>
 <tr class="separator:a7547b5114f15bb1bdc4ddc1c14da3c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca4a2e4c4b29ad6d3361d8202e1e1c0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca4a2e4c4b29ad6d3361d8202e1e1c0c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setBrand</b> (string inBrand)</td></tr>
-<tr class="separator:aca4a2e4c4b29ad6d3361d8202e1e1c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7138347e7a1f4651f5638ad148c4b7e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7138347e7a1f4651f5638ad148c4b7e1"></a>
-virtual string&#160;</td><td class="memItemRight" valign="bottom"><b>getBrand</b> ()</td></tr>
-<tr class="separator:a7138347e7a1f4651f5638ad148c4b7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15b661908f1f70cb15e910d59c879b01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15b661908f1f70cb15e910d59c879b01"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setBrand</b> (std::string inBrand)</td></tr>
+<tr class="separator:a15b661908f1f70cb15e910d59c879b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf98a9485c7dd511ee55b34e328f2eb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf98a9485c7dd511ee55b34e328f2eb0"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getBrand</b> ()</td></tr>
+<tr class="separator:adf98a9485c7dd511ee55b34e328f2eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a03df46453d0266dd69b88b827cbd7f98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03df46453d0266dd69b88b827cbd7f98"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>brand</b></td></tr>
-<tr class="separator:a03df46453d0266dd69b88b827cbd7f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac92b9e665801fbf45368c11470631d26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac92b9e665801fbf45368c11470631d26"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>brand</b></td></tr>
+<tr class="separator:ac92b9e665801fbf45368c11470631d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Prototype. Virtual base class for all equipment.</p>
 <p><a class="el" href="class_equipment.html">Equipment</a> Prototype </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>main.cpp</li>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>classes/<a class="el" href="_equipment_8h_source.html">Equipment.h</a></li>
+<li>classes/Equipment.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['treadmill',['Treadmill',['../class_treadmill.html',1,'']]]
+  ['gym',['Gym',['../class_gym.html',1,'']]]
 ];

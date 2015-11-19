@@ -1,5 +1,9 @@
 \hypertarget{class_equipment}{}\section{Equipment Class Reference}
 \label{class_equipment}\index{Equipment@{Equipment}}
+
+
+{\ttfamily \#include $<$Equipment.\+h$>$}
+
 Inheritance diagram for Equipment\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,7 +16,7 @@ Inheritance diagram for Equipment\+:\begin{figure}[H]
 \hypertarget{class_equipment_a5c6929939d117e84e182e21a62a7723a}{}virtual \hyperlink{class_equipment}{Equipment} $\ast$ \hyperlink{class_equipment_a5c6929939d117e84e182e21a62a7723a}{clone} () const  =0\label{class_equipment_a5c6929939d117e84e182e21a62a7723a}
 
 \begin{DoxyCompactList}\small\item\em Create a clone of this piece of equipment at the same state. \end{DoxyCompactList}\item 
-\hypertarget{class_equipment_adc1e79be9fcf87bd78e073c5177f89e5}{}virtual string \hyperlink{class_equipment_adc1e79be9fcf87bd78e073c5177f89e5}{to\+String} () const  =0\label{class_equipment_adc1e79be9fcf87bd78e073c5177f89e5}
+\hypertarget{class_equipment_a970f5be54182c0067cb2cbb72c0029b6}{}virtual std\+::string \hyperlink{class_equipment_a970f5be54182c0067cb2cbb72c0029b6}{to\+String} () const  =0\label{class_equipment_a970f5be54182c0067cb2cbb72c0029b6}
 
 \begin{DoxyCompactList}\small\item\em Return a string representation of this piece of equipment. \end{DoxyCompactList}\item 
 \hypertarget{class_equipment_adc36912d637c7c445db05cab803abeb3}{}virtual void \hyperlink{class_equipment_adc36912d637c7c445db05cab803abeb3}{serialize} (std\+::ostream \&os) const  =0\label{class_equipment_adc36912d637c7c445db05cab803abeb3}
@@ -21,16 +25,16 @@ Inheritance diagram for Equipment\+:\begin{figure}[H]
 \hypertarget{class_equipment_a7547b5114f15bb1bdc4ddc1c14da3c8d}{}virtual \hyperlink{class_equipment_a7547b5114f15bb1bdc4ddc1c14da3c8d}{$\sim$\+Equipment} ()\label{class_equipment_a7547b5114f15bb1bdc4ddc1c14da3c8d}
 
 \begin{DoxyCompactList}\small\item\em Set the brand. \end{DoxyCompactList}\item 
-\hypertarget{class_equipment_aca4a2e4c4b29ad6d3361d8202e1e1c0c}{}virtual void {\bfseries set\+Brand} (string in\+Brand)\label{class_equipment_aca4a2e4c4b29ad6d3361d8202e1e1c0c}
+\hypertarget{class_equipment_a15b661908f1f70cb15e910d59c879b01}{}virtual void {\bfseries set\+Brand} (std\+::string in\+Brand)\label{class_equipment_a15b661908f1f70cb15e910d59c879b01}
 
 \item 
-\hypertarget{class_equipment_a7138347e7a1f4651f5638ad148c4b7e1}{}virtual string {\bfseries get\+Brand} ()\label{class_equipment_a7138347e7a1f4651f5638ad148c4b7e1}
+\hypertarget{class_equipment_adf98a9485c7dd511ee55b34e328f2eb0}{}virtual std\+::string {\bfseries get\+Brand} ()\label{class_equipment_adf98a9485c7dd511ee55b34e328f2eb0}
 
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_equipment_a03df46453d0266dd69b88b827cbd7f98}{}string {\bfseries brand}\label{class_equipment_a03df46453d0266dd69b88b827cbd7f98}
+\hypertarget{class_equipment_ac92b9e665801fbf45368c11470631d26}{}std\+::string {\bfseries brand}\label{class_equipment_ac92b9e665801fbf45368c11470631d26}
 
 \end{DoxyCompactItemize}
 
@@ -40,6 +44,7 @@ Prototype. Virtual base class for all equipment.
 
 \hyperlink{class_equipment}{Equipment} Prototype 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-main.\+cpp\end{DoxyCompactItemize}
+classes/Equipment.\+h\item 
+classes/Equipment.\+cpp\end{DoxyCompactItemize}

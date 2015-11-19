@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>My Project: EquipmentManager Class Reference</title>
+<title>SENG330 - Assignment 2: EquipmentManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">SENG330 - Assignment 2
    </div>
+   <div id="projectbrief">C++ implementation of a basic gym equipment management system.</div>
   </td>
  </tr>
  </tbody>
@@ -38,8 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -89,31 +90,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">EquipmentManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_equipment_manager_8h_source.html">EquipmentManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8cf5a5bb4da177e2323df46372a02f78"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cf5a5bb4da177e2323df46372a02f78"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment_manager.html#a8cf5a5bb4da177e2323df46372a02f78">~EquipmentManager</a> ()</td></tr>
-<tr class="memdesc:a8cf5a5bb4da177e2323df46372a02f78"><td class="mdescLeft">&#160;</td><td class="mdescRight">When the equipment manager is destroyed, have all equipment destroy itself also. <br /></td></tr>
-<tr class="separator:a8cf5a5bb4da177e2323df46372a02f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4a2d6042ec154263cc69227fd80237d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4a2d6042ec154263cc69227fd80237d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment_manager.html#ae4a2d6042ec154263cc69227fd80237d">registerPrototype</a> (const string &amp;key, <a class="el" href="class_equipment.html">Equipment</a> *prototype)</td></tr>
-<tr class="memdesc:ae4a2d6042ec154263cc69227fd80237d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a prototype so subsequent equipment can be cloned. <br /></td></tr>
-<tr class="separator:ae4a2d6042ec154263cc69227fd80237d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a646da096ab0d5a52eeb925c871c59067"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a646da096ab0d5a52eeb925c871c59067"></a>
-<a class="el" href="class_equipment.html">Equipment</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment_manager.html#a646da096ab0d5a52eeb925c871c59067">getPrototype</a> (const string &amp;key)</td></tr>
-<tr class="memdesc:a646da096ab0d5a52eeb925c871c59067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Have the requested equipment type clone itself. <br /></td></tr>
-<tr class="separator:a646da096ab0d5a52eeb925c871c59067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad2e6bc9c428ad79f4b4edbf9243cabc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad2e6bc9c428ad79f4b4edbf9243cabc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment_manager.html#aad2e6bc9c428ad79f4b4edbf9243cabc">printAvailablePrototypes</a> ()</td></tr>
-<tr class="memdesc:aad2e6bc9c428ad79f4b4edbf9243cabc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the name of all available prototypes. <br /></td></tr>
-<tr class="separator:aad2e6bc9c428ad79f4b4edbf9243cabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46a4c47fdf8c30b9f57289b26ce1bb7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af46a4c47fdf8c30b9f57289b26ce1bb7"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment_manager.html#af46a4c47fdf8c30b9f57289b26ce1bb7">~EquipmentManager</a> ()</td></tr>
+<tr class="memdesc:af46a4c47fdf8c30b9f57289b26ce1bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">When the equipment manager is destroyed, have all equipment destroy itself also. <br /></td></tr>
+<tr class="separator:af46a4c47fdf8c30b9f57289b26ce1bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b0b1f9a7bfd3a2f6f175861934d5209"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b0b1f9a7bfd3a2f6f175861934d5209"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment_manager.html#a9b0b1f9a7bfd3a2f6f175861934d5209">registerPrototype</a> (const std::string &amp;key, <a class="el" href="class_equipment.html">Equipment</a> *prototype)</td></tr>
+<tr class="memdesc:a9b0b1f9a7bfd3a2f6f175861934d5209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a prototype so subsequent equipment can be cloned. <br /></td></tr>
+<tr class="separator:a9b0b1f9a7bfd3a2f6f175861934d5209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fa1699c3d15509e0919398ae26996b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fa1699c3d15509e0919398ae26996b9"></a>
+<a class="el" href="class_equipment.html">Equipment</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment_manager.html#a5fa1699c3d15509e0919398ae26996b9">getPrototype</a> (const std::string &amp;key)</td></tr>
+<tr class="memdesc:a5fa1699c3d15509e0919398ae26996b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Have the requested equipment type clone itself. <br /></td></tr>
+<tr class="separator:a5fa1699c3d15509e0919398ae26996b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3a359204e3460e07f241599e888f9fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3a359204e3460e07f241599e888f9fa"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_equipment_manager.html#ac3a359204e3460e07f241599e888f9fa">printAvailablePrototypes</a> (std::ostream &amp;os) const </td></tr>
+<tr class="memdesc:ac3a359204e3460e07f241599e888f9fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the name of all available prototypes. <br /></td></tr>
+<tr class="separator:ac3a359204e3460e07f241599e888f9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_equipment_manager.html">EquipmentManager</a> manages prototypes.</p>
 <p>Use <a class="el" href="class_equipment_manager.html">EquipmentManager</a> to register new prototypes, initialize instances, and access any information regarding the registered prototypes. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>main.cpp</li>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>classes/<a class="el" href="_equipment_manager_8h_source.html">EquipmentManager.h</a></li>
+<li>classes/EquipmentManager.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

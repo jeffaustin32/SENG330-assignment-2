@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getprototype',['getPrototype',['../class_equipment_manager.html#a646da096ab0d5a52eeb925c871c59067',1,'EquipmentManager']]]
+  ['bowflex',['Bowflex',['../class_bowflex.html#a10b7274af9e6835b12ec58cb61d39eac',1,'Bowflex']]]
 ];
