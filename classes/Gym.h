@@ -23,7 +23,6 @@ private:
 	EquipmentManager* equipmentManager;
 	HANDLE hstdin;
 	HANDLE hstdout;
-	CONSOLE_SCREEN_BUFFER_INFO csbi;
 	void setFontTheme(std::string theme) const;
 public:
 	/// Create a new instance of a Gym

@@ -1,9 +1,6 @@
 CC=g++
 CFLAGS=-c
 
-SRC=Equipment.cpp Treadmill.cpp Bowflex.cpp EquipmentManager.cpp Gym.cpp main.cpp
-OBJ=$(SRC:.cpp=.o)
-
 DIR=classes/
 
 all: Gym
@@ -30,4 +27,4 @@ Gym.o: $(DIR)EquipmentManager.o
 	$(CC) $(CFLAGS) $(DIR)Gym.cpp
 
 clean:
-	del $(OBJ)
+	del /s *.o

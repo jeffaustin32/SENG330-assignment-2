@@ -14,8 +14,8 @@ EquipmentManager::~EquipmentManager()
 /// Register a prototype so subsequent equipment can be cloned
 void EquipmentManager::registerPrototype(const std::string& key, Equipment* prototype)
 {
-	prototypes.insert ( std::pair<std::string, Equipment*>(key, prototype) );
-	//prototypes[key] = prototype;
+   // prototypes.insert ( std::pair<std::string, Equipment*>(key, prototype) );
+	prototypes[key] = prototype;
 }
 
 /// Have the requested equipment type clone itself
@@ -24,6 +24,7 @@ Equipment* EquipmentManager::getPrototype(const std::string& key)
 	if (prototypes.count(key) == 0){
 		return NULL;
 	}
+
 	return prototypes[key]->clone();
 }	
 

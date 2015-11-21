@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7eequipment',['~Equipment',['../class_equipment.html#a7547b5114f15bb1bdc4ddc1c14da3c8d',1,'Equipment']]],
-  ['_7eequipmentmanager',['~EquipmentManager',['../class_equipment_manager.html#af46a4c47fdf8c30b9f57289b26ce1bb7',1,'EquipmentManager']]]
+  ['use',['use',['../class_bowflex.html#a4e4e532b6b9bb5f5977c819e0f2ed623',1,'Bowflex::use()'],['../class_equipment.html#ad353e0121f958ee31f56ef7a7b4ff1e0',1,'Equipment::use()'],['../class_treadmill.html#a1e3ae2873e676077a7807fc5b51e7ab7',1,'Treadmill::use()']]]
 ];

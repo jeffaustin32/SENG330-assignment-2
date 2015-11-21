@@ -3,14 +3,11 @@
 Gym::Gym()
 {
 	equipmentManager = new EquipmentManager();
-	equipmentManager->registerPrototype("Treadmill", new Treadmill("Forest Gump Inc"));
-	equipmentManager->registerPrototype("Bowflex", new Bowflex("Macho Man Limited"));
+	equipmentManager->registerPrototype("Treadmill", new Treadmill());
+	equipmentManager->registerPrototype("Bowflex", new Bowflex());
 
 	hstdin  = GetStdHandle( STD_INPUT_HANDLE  );
 	hstdout = GetStdHandle( STD_OUTPUT_HANDLE );
-
-	// Remember how things were when we started
-	GetConsoleScreenBufferInfo( hstdout, &csbi );
 }
 
 void Gym::setFontTheme(std::string theme) const
@@ -78,10 +75,29 @@ bool Gym::addEquipment()
 		return false;
 	} 
 
+	// Prompt user to enter a brand
+	std::cout << "Enter the brand of " << equipmentSelection << ": ";
+
+	// Clear the input buffer
+	std::cin.clear(); 
+	std::cin.sync();
+
+	// Get the brand
+	std::string equipmentBrand;
+	std::getline(std::cin, equipmentBrand);
+
+	if (equipmentBrand.empty()) 
+	{
+		equipmentBrand = "No Name";
+	}
+
+	// Set the brand
+	newEquipment->setBrand(equipmentBrand);
+
 	// Add the new equipment
 	equipment.push_back(newEquipment);
 	setFontTheme("success");
-	std::cout << "\nAdded new " << equipmentSelection << "!" << std::endl; 
+	std::cout << "\nAdded new " << equipmentBrand << " brand " << equipmentSelection << "!" << std::endl; 
 	setFontTheme("default");
 	return true;
 }

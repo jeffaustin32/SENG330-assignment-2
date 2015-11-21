@@ -20,8 +20,12 @@ public:
   	virtual void serialize(std::ostream& os) const = 0; 
   	/// Set the brand
 	virtual ~Equipment() {};
+	/// Set the brand of equipment
 	virtual void setBrand(std::string inBrand);
+	/// Get the brand of equipment
   	virtual std::string getBrand();
+  	/// Use the equipment
+  	virtual void use() const = 0;
 };
 
 std::ostream& operator<< (std::ostream& os, const Equipment& s);
