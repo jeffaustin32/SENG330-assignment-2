@@ -28,6 +28,12 @@ Equipment* EquipmentManager::getPrototype(const std::string& key)
 	return prototypes[key]->clone();
 }	
 
+/// Number of prototypes registered
+int EquipmentManager::prototypeCount()
+{
+    return prototypes.size();
+}
+
 /// Print the name of all available prototypes
 std::ostream& EquipmentManager::printAvailablePrototypes(std::ostream& os) const
 {

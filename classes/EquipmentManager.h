@@ -19,6 +19,8 @@ public:
 	void registerPrototype(const std::string& key, Equipment* prototype);
 	/// Have the requested equipment type clone itself
 	Equipment* getPrototype(const std::string& key);
+	/// Number of prototypes registered
+	int prototypeCount();
 	/// Print the name of all available prototypes
 	std::ostream& printAvailablePrototypes(std::ostream& os) const;
 };

@@ -1,0 +1,30 @@
+CC=g++
+CFLAGS=-c
+
+DIR=../classes/
+
+all: Gym
+
+Gym: $(DIR)Equipment.o $(DIR)Treadmill.o $(DIR)Bowflex.o $(DIR)EquipmentManager.o $(DIR)Gym.o test.o
+	g++ $(DIR)Equipment.cpp $(DIR)Treadmill.cpp $(DIR)Bowflex.cpp $(DIR)EquipmentManager.cpp $(DIR)Gym.cpp test.cpp -o test.exe
+
+test.o: $(DIR)Equipment.o $(DIR)Treadmill.o $(DIR)Bowflex.o $(DIR)EquipmentManager.o $(DIR)Gym.o
+	$(CC) $(CFLAGS) test.cpp
+
+Equipment.o:
+	$(CC) $(CFLAGS) $(DIR)Equipment.cpp
+
+Treadmill.o: $(DIR)Equipment.o
+	$(CC) $(CFLAGS) $(DIR)Treadmill.cpp
+
+Bowflex.o: $(DIR)Equipment.o
+	$(CC) $(CFLAGS) $(DIR)Bowflex.cpp
+
+EquipmentManager.o: $(DIR)Treadmill.o $(DIR)Bowflex.o
+	$(CC) $(CFLAGS) $(DIR)EquipmentManager.cpp
+
+Gym.o: $(DIR)EquipmentManager.o
+	$(CC) $(CFLAGS) $(DIR)Gym.cpp
+
+clean:
+	del /s *.o

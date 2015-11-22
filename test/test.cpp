@@ -1,44 +1,36 @@
-#define BOOST_TEST_DYN_LINK
-#define BOOST_TEST_MODULE Suites
-#include <../boost/test/unit_test.hpp>
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#include "catch.hpp"
 
-#include "../classes/Gym.h"
- 
-// Testing fixture 
-struct gymFixture{
-	Gym* gym;
-	// setup function
-	gymFixture(){
-		gym = new Gym();
-	};      
+#include "../classes/Equipment.h"
+#include "../classes/Treadmill.h"
+#include "../classes/Bowflex.h"
+#include "../classes/EquipmentManager.h"
 
-	// teardown function
-	~gymFixture();    
-};
-
-int add(int i, int j)
-{
-    return i + j;
+TEST_CASE( "Initialize concrete implementation", "[Treadmill]" ) {
+    SECTION( "Can create Treadmill without brand" ) {
+		Treadmill* treadmill = new Treadmill();
+        REQUIRE( treadmill->getBrand() == "" );
+    }
+    SECTION( "Can create Treadmill with brand" ) {
+		Treadmill* treadmill = new Treadmill("Example");
+        REQUIRE( treadmill->getBrand() == "Example" );
+    }
 }
- 
 
-BOOST_AUTO_TEST_SUITE(Gym);
- 
-	BOOST_FIXTURE_TEST_CASE(Initialize)
-	{
-	    // Initialized
+TEST_CASE( "Prototypes", "[Prototype]" ) {
+	EquipmentManager* equipmentManager = new EquipmentManager();
+	REQUIRE( equipmentManager->prototypeCount() == 0);
 
+	SECTION("Can register Treadmill prototype with no brand") {
+		equipmentManager->registerPrototype("Treadmill", new Treadmill());
+		REQUIRE( equipmentManager->prototypeCount() == 1);
 	}
- 
-BOOST_AUTO_TEST_SUITE_END();
- 
 
+	SECTION("Can clone Bowflex prototype with brand") {
+		equipmentManager->registerPrototype("Bowflex", new Bowflex("Example Brand"));
+		REQUIRE( equipmentManager->prototypeCount() == 1);
 
-BOOST_AUTO_TEST_SUITE(EquipmentManager);
- 
-	BOOST_FIXTURE_TEST_CASE()
-	{
-	    
+		Bowflex* bowflex = dynamic_cast<Bowflex*>(equipmentManager->getPrototype("Bowflex"));
+		REQUIRE( bowflex->getBrand() == "Example Brand");
 	}
- 
-BOOST_AUTO_TEST_SUITE_END();
+}
