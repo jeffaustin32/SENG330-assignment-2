@@ -21,3 +21,4 @@ https://github.com/philsquared/Catch
 
 Test install:
 Navigate to the test folder and run “mingw32-make –f MakeFile all clean”.  This will link all the required classes in and export the test as “test.exe”.
+
